@@ -24,7 +24,7 @@
      */
      
 // meta tag robots
-//osc_add_hook('header','xtclass_nofollow_construct');
+osc_add_hook('header','xtclass_nofollow_construct');
 
 function custom_meta_title($data){
     return __('Change e-mail', XTCLASS_THEME_FOLDER);;

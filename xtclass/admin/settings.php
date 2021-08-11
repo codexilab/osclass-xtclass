@@ -21,6 +21,7 @@
 
 if ((!defined('ABS_PATH'))) exit('ABS_PATH is not loaded. Direct access is not allowed.');
 if (!OC_ADMIN) exit('User access is not allowed.'); ?>
+
 <h2 class="render-title <?php echo (osc_get_preference('footer_link', 'bender') ? '' : 'separate-top'); ?>"><?php _e('Theme settings', XTCLASS_THEME_FOLDER); ?></h2>
 <form action="<?php echo osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/settings.php'); ?>" method="post" class="nocsrf">
     <input type="hidden" name="action_specific" value="settings" />
@@ -94,6 +95,7 @@ if (!OC_ADMIN) exit('User access is not allowed.'); ?>
             <p><?php _e('In this section you can configure your site to display ads and start generating revenue.', XTCLASS_THEME_FOLDER); ?><br/><?php _e('If you are using an online advertising platform, such as Google Adsense, copy and paste here the provided code for ads.', XTCLASS_THEME_FOLDER); ?></p>
         </div>
     </div>
+
     <fieldset>
         <div class="form-horizontal">
             <div class="form-row">

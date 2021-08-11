@@ -24,8 +24,10 @@
    */
    
 // meta tag robots
-//osc_add_hook('header','xtclass_nofollow_construct');
+osc_add_hook('header','xtclass_nofollow_construct');
+
 xtclass_add_wrapper_class('justify-content-md-center');
+
 osc_current_web_theme_path('header.php'); ?>
     <div class="col-md-8">
         <div class="card border mb-3">

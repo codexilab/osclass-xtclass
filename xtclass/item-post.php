@@ -24,7 +24,7 @@
 	 */
 	 
 // meta tag robots
-//osc_add_hook('header','xtclass_nofollow_construct');
+osc_add_hook('header','xtclass_nofollow_construct');
 
 $action = 'item_add_post';
 $edit = false;

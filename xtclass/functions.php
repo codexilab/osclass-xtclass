@@ -1071,30 +1071,6 @@ if (!function_exists('xtclass_upload_images')) {
     }
 }
 
-if (!function_exists('upload_metadata_json')) {
-    /**
-     * Process to upload JSON file
-     */
-    function upload_metadata_json($filename, $path) {
-        $package = Params::getFiles('file');
-        
-        if ($package['error'] == UPLOAD_ERR_OK) {
-            $json = MetaData::read_json_file($package['tmp_name']);
-
-            if(!$json) {
-                osc_add_flash_error_message(_m("Its not a file JSON"), 'admin');
-            } else if (move_uploaded_file($package['tmp_name'], $path)) {
-                osc_add_flash_ok_message(_m('The file has been uploaded correctly'), 'admin');
-            } else {
-                osc_add_flash_error_message(_m("An error has occurred, please try again"), 'admin');
-            }
-        } else {
-            osc_add_flash_error_message(_m("An error has occurred, please try again"), 'admin');
-        }
-        ob_get_clean();
-    }
-}
-
 if (!function_exists('xtclass_scss_style_path')) {
     function xtclass_scss_style_path() {
         return XTCLASS_THEME_PATH . 'scss/style.scss';
@@ -1168,70 +1144,6 @@ if (!function_exists('theme_xtclass_actions_admin')) {
                     osc_redirect_to($_SERVER['HTTP_REFERER']);
                     break;
 
-                case 'generate_metadata_json':
-                    if (MetaData::generate_json_file()) {
-                        osc_add_flash_ok_message(__('The file has been created', XTCLASS_THEME_FOLDER), 'admin');
-                    } else {
-                        osc_add_flash_ok_message(__('The file could not be created', XTCLASS_THEME_FOLDER), 'admin');
-                    }
-                    ob_get_clean();
-                    osc_redirect_to($_SERVER['HTTP_REFERER']);
-                    break;
-
-                case 'remove_metadata_json':
-                    $target = Params::getParam('target');
-                    $json   = MetaData::path($target);
-                    if (file_exists($json)) {
-                        if (@unlink($json)) {
-                            osc_add_flash_ok_message(__('The file has been removed', XTCLASS_THEME_FOLDER), 'admin');
-                        } else {
-                            osc_add_flash_ok_message(__('The file could not be removed', XTCLASS_THEME_FOLDER), 'admin');
-                        }
-                    } else {
-                        osc_add_flash_error_message(__("File not found", XTCLASS_THEME_FOLDER), 'admin');
-                    }
-                    ob_get_clean();
-                    osc_redirect_to($_SERVER['HTTP_REFERER']);
-                    break;
-
-                case 'put_metadata_json':
-                    $metadata       = Params::getParam('metadata'); // string content
-                    $json_name      = Params::getParam('target');   // e.g.: metadata.json
-                    $json_file_path = MetaData::path($json_name);
-                    $writable       = (is_writable($json_file_path)) ? true : @chmod($json_file_path, 0755);
-                    if ($writable) {
-                        file_put_contents($json_file_path, $metadata);
-                        osc_add_flash_ok_message(__('Content saved!', XTCLASS_THEME_FOLDER), 'admin');
-                    } else {
-                        osc_add_flash_error_message(__('The content could not be saved!', XTCLASS_THEME_FOLDER), 'admin');
-                    }
-                    ob_get_clean();
-                    osc_redirect_to($_SERVER['HTTP_REFERER']);
-                    break;
-
-                case 'upload_metadata_json':
-                    $filename   = MetaData::$json_name;
-                    $path       = MetaData::path($filename);
-                    upload_metadata_json($filename, $path);
-                    osc_redirect_to($_SERVER['HTTP_REFERER']);
-                    break;
-
-                case 'download_metadata_json':
-                    osc_csrf_check();
-                    $file = MetaData::$json_name;
-                    $path = MetaData::path($file);
-                    // Validate if is a .json file
-                    if (preg_match('/^.*\.(json)$/i', $file) && (file_exists($path))) {
-                        header('Content-Type: application/json');
-                        header('Content-Disposition: attachment; filename="'.$file.'"');
-                        readfile($path);
-                        exit;
-                    } else {
-                        ob_get_clean();
-                        osc_redirect_to($_SERVER['HTTP_REFERER']);
-                    }
-                    break;
-
                 case 'compile_scss':
                     $scss_content       = Params::getParam('scss', false, false, false);
                     $scss_file_path     = xtclass_scss_style_path();    // scss/style.scss
@@ -1290,6 +1202,5 @@ if (!function_exists('theme_xtclass_actions_admin')) {
 osc_admin_menu_appearance(__('Navbar logo', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/navbar.php'), 'navbar_xtclass');
 osc_admin_menu_appearance(__('Header images', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/header.php'), 'header_xtclass');
 osc_admin_menu_appearance(__('Footer logo', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/footer.php'), 'footer_xtclass');
-osc_admin_menu_appearance(__('Meta Tags SEO', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/metatags/metatags.php'), 'metatags_xtclass');
 osc_admin_menu_appearance(__('CSS style editor', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/scss-compiler/scss-compiler.php'), 'scss-compiler_xtclass');
 osc_admin_menu_appearance(__('Theme settings', XTCLASS_THEME_FOLDER), osc_admin_render_theme_url('oc-content/themes/'.XTCLASS_THEME_FOLDER.'/admin/settings.php'), 'settings_bender');

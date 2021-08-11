@@ -24,7 +24,7 @@
 	 */
 	 
 // meta tag robots
-//osc_add_hook('header', 'xtclass_follow_construct');
+osc_add_hook('header', 'xtclass_follow_construct');
 
 osc_add_hook('header', 'scrollFunctionCSS', 9);
 function scrollFunctionCSS() { ?>

@@ -24,7 +24,7 @@
 	 */
 	 
 // meta tag robots
-//osc_add_hook('header', 'xtclass_follow_construct');
+osc_add_hook('header', 'xtclass_follow_construct');
 
 osc_remove_hook('before-content', 'xtclass_header');
 

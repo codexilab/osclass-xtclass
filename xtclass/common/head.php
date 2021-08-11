@@ -29,7 +29,19 @@
 	<meta http-equiv="Expires" content="Fri, Jan 01 1970 00:00:00 GMT" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<?php MetaTag::render_meta_tags(); ?>
+	<?php
+	if (meta_description() != '') {
+		echo '<meta name="description" content="'.osc_esc_html(meta_description()).'" />' . PHP_EOL;
+	}
+
+	if (meta_keywords() != '') {
+		echo '<meta name="keywords" content="'.osc_esc_html(meta_keywords()).'" />'	. PHP_EOL;
+	}
+
+	if (osc_get_canonical() != '') {
+		echo '<link rel="canonical" href="'.osc_get_canonical().'" />' . PHP_EOL;
+	}
+	?>
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -41,5 +53,7 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo osc_current_web_theme_url('favicon/favicon-72.png'); ?>">
 	<link rel="apple-touch-icon-precomposed" href="<?php echo osc_current_web_theme_url('favicon/favicon-57.png'); ?>">
 	<!-- /favicon -->
+
+	<title><?php echo meta_title(); ?></title>
 
 	<?php osc_run_hook('header'); ?>

@@ -24,7 +24,7 @@
 	 */
 	 
 // meta tag robots
-//osc_add_hook('header','xtclass_nofollow_construct');
+osc_add_hook('header','xtclass_nofollow_construct');
 
 function js_item_send_friend() {
 	CustomSendFriendForm::js_validation();
