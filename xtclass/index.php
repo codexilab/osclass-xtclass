@@ -2,7 +2,7 @@
     /*
      * MIT License
      * 
-     * Copyright (c) 2020 CodexiLab
+     * Copyright (c) 2021 CodexiLab
      * 
      * Permission is hereby granted, free of charge, to any person obtaining a copy
      * of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,25 @@
      */
 
 /*
-Theme Name: XT Classifieds
-Theme URI: https://gitlab.com/xenotrue/development/osclass_them_bs4_xt-web-solution
+Theme Name: XTClass
+Theme URI: https://gitlab.com/codexilab/osclass-xtclass
 Description: Bootstrap 4 theme based in Bender Bootstrap 1.0.3
-Version: 1.0.0
-Author: XenoTrue
-Author URI: https://gitlab.com/xenotrue
+Version: 1.0.2
+Author: CodexiLab
+Author URI: https://gitlab.com/codexilab
 Widgets:  header, footer
 Theme update URI: xtclass
 */
 
     function xtclass_theme_info() {
-        return array(
-             'name'        => 'XT Classifieds'
-            ,'version'     => '1.0.0'
+        return [
+             'name'        => 'XTClass'
+            ,'version'     => '1.0.1'
             ,'description' => 'Bootstrap 4 theme based in Bender Bootstrap 1.0.3'
-            ,'author_name' => 'XenoTrue'
-            ,'author_url'  => 'https://github.com/xenotrue'
+            ,'author_name' => 'CodexiLab'
+            ,'author_url'  => 'https://github.com/codexilab'
             ,'locations'   => array()
-        );
+        ];
     }
 
 ?>

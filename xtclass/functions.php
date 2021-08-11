@@ -23,9 +23,9 @@ if (OC_ADMIN)
     require_once dirname(__FILE__) . '/includes/classes/scssphp/scss.inc.php';
     use ScssPhp\ScssPhp\Compiler;
 
-define('XTCLASS_THEME_VERSION', '1.0.0');
-define('XTCLASS_THEME_FOLDER', osc_current_web_theme());
-define('XTCLASS_THEME_PATH', WebThemes::newInstance()->getCurrentThemePath());
+define('XTCLASS_THEME_VERSION', '1.0.1');
+define('XTCLASS_THEME_FOLDER', 'xtclass');
+define('XTCLASS_THEME_PATH', osc_themes_path() . XTCLASS_THEME_FOLDER . '/');
 
 // CUSTOM CLASSES      
 require XTCLASS_THEME_PATH . 'includes/classes/XTClassifiedsAutoLoader.php';
@@ -85,35 +85,35 @@ if ((string) osc_get_preference('keyword_placeholder', 'bender') == "") {
 if (!function_exists('xtclass_theme_install')) {
     function xtclass_theme_install() {
         osc_set_preference('version', XTCLASS_THEME_VERSION, 'xtclass');
-        #osc_set_preference('keyword_placeholder', Params::getParam('keyword_placeholder'), 'bender');
-        #osc_set_preference('defaultShowAs@all', 'list', 'bender');
-        #osc_set_preference('defaultShowAs@search', 'list');
-        #osc_set_preference('defaultLocationShowAs', 'dropdown', 'bender'); // dropdown / autocomplete
+        //osc_set_preference('keyword_placeholder', Params::getParam('keyword_placeholder'), 'bender');
+        //osc_set_preference('defaultShowAs@all', 'list', 'bender');
+        //osc_set_preference('defaultShowAs@search', 'list');
+        //osc_set_preference('defaultLocationShowAs', 'dropdown', 'bender'); // dropdown / autocomplete
         osc_reset_preferences();
     }
 }
 
-/**
- * Get images folder path.
- *
- * @param string $file Get ~/oc-content/themes/xtclass/images/uploads/logo.jpg
- * @return string ~/oc-content/themes/xtclass/images/uploads/
- */
 if (!function_exists('xtclass_images_uploads_path')) {
+    /**
+     * Get images folder path.
+     *
+     * @param string $file Get ~/oc-content/themes/xtclass/images/uploads/logo.jpg
+     * @return string ~/oc-content/themes/xtclass/images/uploads/
+     */
     function xtclass_images_uploads_path($file = null) {
-        return XTCLASS_THEME_PATH.'images/uploads/'.$file;
+        return XTCLASS_THEME_PATH . 'images/uploads/' . $file;
     }
 }
 
-/**
- * Get images folder URL.
- *
- * @param string $file Get sitename.com/oc-content/themes/xtclass/images/uploads/logo.png
- * @return string sitename.com/oc-content/themes/xtclass/images/uploads/
- */
 if (!function_exists('xtclass_images_uploads_url')) {
+   /**
+    * Get images folder URL.
+    *
+    * @param string $file Get sitename.com/oc-content/themes/xtclass/images/uploads/logo.png
+    * @return string sitename.com/oc-content/themes/xtclass/images/uploads/
+    */
     function xtclass_images_uploads_url($file = null) {
-        return osc_current_web_theme_url('images/uploads/').$file;
+        return osc_current_web_theme_url('images/uploads/') . $file;
     }
 }
 
@@ -140,8 +140,8 @@ if (!function_exists('xtclass_num_premiums_home')) {
 
 if (!function_exists('xtclass_nofollow_construct')) {
     /**
-    * Hook for header, meta tags robots nofollos
-    */
+     * Hook for header, meta tags robots nofollow
+     */
     function xtclass_nofollow_construct() {
         echo '<meta name="robots" content="noindex, nofollow, noarchive" />' . PHP_EOL;
         echo '<meta name="googlebot" content="noindex, nofollow, noarchive" />' . PHP_EOL;
@@ -150,8 +150,8 @@ if (!function_exists('xtclass_nofollow_construct')) {
 
 if (!function_exists('xtclass_follow_construct')) {
     /**
-    * Hook for header, meta tags robots follow
-    */
+     * Hook for header, meta tags robots follow
+     */
     function xtclass_follow_construct() {
         echo '<meta name="robots" content="index, follow" />' . PHP_EOL;
         echo '<meta name="googlebot" content="index, follow" />' . PHP_EOL;
@@ -219,15 +219,15 @@ function xtclass_add_wrapper_class($class) {
 }
 xtclass_add_wrapper_class('row');
 
-/**
- * Detect if a string is PHP script
- * with only the PHP tags is opened and closed
- * and without white spaces blank before or after of string
- *
- * @param $str
- * @return bool
- */
 if (!function_exists('check_php_tags')) {
+    /**
+     * Detect if a string is PHP script
+     * with only the PHP tags is opened and closed
+     * and without white spaces blank before or after of string
+     *
+     * @param $str
+     * @return bool
+     */
     function check_php_tags($str) {
         $str = str_replace("\r", "", $str); // Minify
 
@@ -238,13 +238,13 @@ if (!function_exists('check_php_tags')) {
     }
 }
 
-/**
- * Remove PHP tags for eval,
- * prevent it print errors/warnings
- *
- * @param $php
- */
 if (!function_exists('eval_nice')) {
+    /**
+     * Remove PHP tags for eval,
+     * prevent it print errors/warnings
+     *
+     * @param $php
+     */
     function eval_nice($php) {
         $code_str = preg_replace('/<\?php(.+?)\?>/is', '$1', $php);
 
@@ -264,10 +264,10 @@ if (!function_exists('apply_eval_nice')) {
     }
 }
 
-// ads  SEARCH
+// ads SEARCH
 if (!function_exists('search_ads_listing_top_fn')) {
     function search_ads_listing_top_fn() {
-        if(osc_get_preference('search-results-top-728x90', 'bender')!='') {
+        if (osc_get_preference('search-results-top-728x90', 'bender')!='') {
             echo '<div class="col-md-12 text-center mb-2"><div class="ads_728">' . PHP_EOL;
             echo apply_eval_nice(osc_get_preference('search-results-top-728x90', 'bender'));
             echo '</div></div>' . PHP_EOL;
@@ -278,7 +278,7 @@ if (!function_exists('search_ads_listing_top_fn')) {
 
 if (!function_exists('search_ads_listing_medium_fn')) {
     function search_ads_listing_medium_fn() {
-        if(osc_get_preference('search-results-middle-728x90', 'bender')!='') {
+        if (osc_get_preference('search-results-middle-728x90', 'bender')!='') {
             echo '<div class="col-md-12 text-center mt-2 mb-2"><div class="ads_728">' . PHP_EOL;
             echo apply_eval_nice(osc_get_preference('search-results-middle-728x90', 'bender'));
             echo '</div></div>' . PHP_EOL;
@@ -294,7 +294,7 @@ if (!function_exists('xtclass_logged_username')) {
     }
 }
 
-if( !function_exists('osc_uploads_url')) {
+if (!function_exists('osc_uploads_url')) {
     function osc_uploads_url($item = '') {
         $logo = osc_get_preference('logo', 'bender');
         if ($logo != '' && file_exists(osc_uploads_path() . $logo)) {
@@ -307,7 +307,7 @@ if( !function_exists('osc_uploads_url')) {
 if (!function_exists('xtclass_logo_url')) {
     function xtclass_logo_url() {
         $logo = osc_get_preference('logo', 'xtclass');
-        if($logo) {
+        if ($logo) {
             return xtclass_images_uploads_url($logo).'?'.filemtime(xtclass_images_uploads_path($logo));
         }
         return false;
@@ -357,63 +357,7 @@ if (!function_exists('xtclass_logo_footer')) {
     }
 }
 
-if (!function_exists('xtclass_header')) {
-    function xtclass_header() { ?>
-        <header id="header" class="jumbotron">
-            <div class="container container-fluid">
-                <div class="row">
-                    <?php if (osc_get_preference('slogan', 'xtclass')) : ?>
-                    <div class="col-md-12">
-                        <div class="row">
-                            <h1 class="slogan"><?php echo osc_get_preference('slogan', 'xtclass'); ?></h1>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="row">
-                            
-                            <div class="col-md-10">
-                                <form class="navbar-search row" action="<?php echo osc_base_url(true); ?>" method="get">
-                                    <input type="hidden" name="page" value="search"/>
-                                    <div class="input-group input-group-lg">
-                                        <input type="text" name="sPattern" value="" class="form-control form-control-info bg-light border-1 small" placeholder="<?php echo osc_esc_html(__(osc_get_preference('keyword_placeholder', 'bender'), XTCLASS_THEME_FOLDER)); ?>" aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-custom-1" type="submit">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>    
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- style="padding-top: 10%;" -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt-max-md-2 mt-md-11">
-                        <div class="row">
-                            <div class="well w-100 bg-wellmain p-3 rounded">
-                                <ul class="list-unstyled mb-0">
-                                    <?php osc_goto_first_category(); ?>
-                                    <?php while (osc_has_categories()) : ?>
-                                    <li><a class="text-lg w-50 float-md-left" href="<?php echo osc_search_category_url() ; ?>"><?php echo osc_category_name() ; ?></a></li>
-                                    <?php endwhile; ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- ./row -->
-            </div>
-        </header>
-    <?php }
-    if (osc_is_home_page()) {
-        osc_add_hook('before-content', 'xtclass_header');
-    }
-}
-
-
-if(!function_exists('get_breadcrumb_lang')) {
+if (!function_exists('get_breadcrumb_lang')) {
     function get_breadcrumb_lang() {
         $lang = array();
         $lang['item_add']               = __('Publish a listing', XTCLASS_THEME_FOLDER);
@@ -447,10 +391,10 @@ if(!function_exists('get_breadcrumb_lang')) {
  *
  * @return string|void
  */
-function xtclass_breadcrumb($separator = '&raquo;' , $echo = true , $lang = array ()) {
+function xtclass_breadcrumb($separator = '&raquo;', $echo = true, $lang = array()) {
     $br = new CustomBreadcrumb($lang);
     $br->init();
-    if( $echo ) {
+    if ($echo) {
         echo $br->render($separator);
         return;
     }
@@ -488,34 +432,33 @@ if (!function_exists('xtclass_default_location_show_as')) {
 
 if (!function_exists('xtclass_search_number')) {
     /**
-    *
-    * @return array
-    */
+     * @return array
+     */
     function xtclass_search_number() {
         $search_from = ((osc_search_page() * osc_default_results_per_page_at_search()) + 1);
         $search_to   = ((osc_search_page() + 1) * osc_default_results_per_page_at_search());
-        if( $search_to > osc_search_total_items() ) {
+        if ($search_to > osc_search_total_items()) {
             $search_to = osc_search_total_items();
         }
 
-        return array(
+        return [
             'from' => $search_from,
             'to'   => $search_to,
             'of'   => osc_search_total_items()
-        );
+        ];
     }
 }
 
-/*
- * Helpers used at view
- */
-if( !function_exists('xtclass_item_title') ) {
+if (!function_exists('xtclass_item_title')) {
+    /**
+     * Helpers used at view.
+     */
     function xtclass_item_title() {
         $title = osc_item_title();
         foreach( osc_get_locales() as $locale ) {
-            if( Session::newInstance()->_getForm('title') != "" ) {
+            if (Session::newInstance()->_getForm('title') != "") {
                 $title_ = Session::newInstance()->_getForm('title');
-                if( @$title_[$locale['pk_c_code']] != "" ){
+                if (@$title_[$locale['pk_c_code']] != "") {
                     $title = $title_[$locale['pk_c_code']];
                 }
             }
@@ -527,10 +470,10 @@ if( !function_exists('xtclass_item_title') ) {
 if (!function_exists('xtclass_item_description')) {
     function xtclass_item_description() {
         $description = osc_item_description();
-        foreach( osc_get_locales() as $locale ) {
-            if( Session::newInstance()->_getForm('description') != "" ) {
+        foreach (osc_get_locales() as $locale) {
+            if (Session::newInstance()->_getForm('description') != "") {
                 $description_ = Session::newInstance()->_getForm('description');
-                if( @$description_[$locale['pk_c_code']] != "" ){
+                if (@$description_[$locale['pk_c_code']] != "") {
                     $description = $description_[$locale['pk_c_code']];
                 }
             }
@@ -632,12 +575,12 @@ if (!function_exists('xtclass_draw_item')) {
         if ($premium) {
             $filename .='-premium';
         }
-        require XTCLASS_THEME_PATH.$filename.'.php';
+        require XTCLASS_THEME_PATH . $filename . '.php';
     }
 }
 
 /**
- * Get html option to nav menu
+ * Get html option to nav menu.
  *
  * @param $n to use in switch structure
  * @return $html
@@ -660,7 +603,7 @@ function html_option_nav_menu($n) {
 }
 
 function get_user_nav_menu() {
-    $options   = array();
+    $options = array();
     if (osc_users_enabled()) {
         if (osc_is_web_user_logged_in()) {
             $options[] = array(
@@ -850,15 +793,15 @@ if (!function_exists('xtclass_private_user_menu')) {
     }
 }
 
-if(!function_exists('user_dashboard_redirect')) {
+/*if (!function_exists('user_dashboard_redirect')) {
     function user_dashboard_redirect() {
         if(osc_is_user_dashboard()) {
-            header('Location: ' .osc_user_list_items_url());
+            header('Location: ' . osc_user_list_items_url());
             exit;
         }
     }
     osc_add_hook('init', 'user_dashboard_redirect');
-}
+}*/
 
 if (!function_exists('osc_item_category_url')) {
     function osc_item_category_url($category_id) {
@@ -875,15 +818,15 @@ if (!function_exists('osc_item_category_url')) {
 if (!function_exists('xtclass_print_sidebar_category_search')) {
     function xtclass_print_sidebar_category_search($aCategories, $current_category = null, $i = 0) {
         $class = 'list-unstyled';
-        if(!isset($aCategories[$i])) {
+        if (!isset($aCategories[$i])) {
             return null;
         }
 
-        if($i!=0) {
+        if ($i!=0) {
             $class = $class . ' ml-3';
         }
 
-        $c   = $aCategories[$i];
+        $c = $aCategories[$i];
         $i++;
         if(!isset($c['pk_i_id'])) {
             echo '<ul class="'.$class.'">';
@@ -897,30 +840,31 @@ if (!function_exists('xtclass_print_sidebar_category_search')) {
                     <?php if(isset($current_category) && $current_category == $value['pk_i_id']){ echo '<strong>'.$value['s_name'].'</strong>'; }
                     else{ echo $value['s_name']; } ?>
                     </a>
-
                 </li>
         <?php
             }
-            if($i==1) {
-            echo "</ul>";
+            if ($i==1) {
+                echo "</ul>";
             } else {
-            echo "</ul>";
+                echo "</ul>";
             }
         } else {
         ?>
         <ul class="<?php echo $class;?>">
-            <?php if($i==1) { ?>
+            <?php if ($i==1) : ?>
             <li><a href="<?php echo osc_esc_html(osc_update_search_url(array('sCategory'=>null, 'iPage'=>null))); ?>"><?php _e('All categories', XTCLASS_THEME_FOLDER); ?></a></li>
-            <?php } ?>
-                <li>
-                    <a id="cat_<?php echo osc_esc_html($c['pk_i_id']);?>" href="<?php echo osc_esc_html(osc_update_search_url(array('sCategory'=> $c['pk_i_id'], 'iPage'=>null))); ?>">
-                    <?php if(isset($current_category) && $current_category == $c['pk_i_id']){ echo '<strong>'.$c['s_name'].'</strong>'; }
-                          else{ echo $c['s_name']; } ?>
-                    </a>
-                    <?php xtclass_print_sidebar_category_search($aCategories, $current_category, $i); ?>
-                </li>
-            <?php if($i==1) { ?>
-            <?php } ?>
+            <?php endif; ?>
+            <li>
+                <a id="cat_<?php echo osc_esc_html($c['pk_i_id']);?>" href="<?php echo osc_esc_html(osc_update_search_url(array('sCategory'=> $c['pk_i_id'], 'iPage'=>null))); ?>">
+                <?php if (isset($current_category) && $current_category == $c['pk_i_id']) : ?>
+                <strong><?php echo $c['s_name']; ?></strong>
+                <?php else: ?>
+                <?php echo $c['s_name']; ?>
+                <?php endif; ?>
+            </a>
+            <?php xtclass_print_sidebar_category_search($aCategories, $current_category, $i); ?>
+            </li>
+            <?php if ($i==1) ?>
         </ul>
     <?php
         }
@@ -961,7 +905,7 @@ if (!function_exists('xtclass_search_pagination')) {
      */
     function xtclass_search_pagination() {
         $params = array();
-        if( View::newInstance()->_exists('search_uri') ) { // CANONICAL URL
+        if (View::newInstance()->_exists('search_uri') ) { // CANONICAL URL
             $params['url'] = osc_base_url().View::newInstance()->_get('search_uri') . '/{PAGE}';
             $params['first_url'] = osc_base_url().View::newInstance()->_get('search_uri');
         } else {
@@ -980,7 +924,7 @@ if (!function_exists('xtclass_pagination_items')) {
      * @return string
      */
     function xtclass_pagination_items($extraParams = array (), $field = false) {
-        if(osc_is_public_profile()) {
+        if (osc_is_public_profile()) {
             $url = osc_user_list_items_pub_profile_url('{PAGE}', $field);
             $first_url = osc_user_public_profile_url();
         } elseif(osc_is_list_items()) {
@@ -988,13 +932,14 @@ if (!function_exists('xtclass_pagination_items')) {
             $first_url = osc_user_list_items_url();
         }
 
-        $params = array('total'    => osc_search_total_pages(),
-                        'selected' => osc_search_page(),
-                        'url'      => $url,
-                        'first_url' => $first_url
-                  );
+        $params = [
+            'total'     => osc_search_total_pages(),
+            'selected'  => osc_search_page(),
+            'url'       => $url,
+            'first_url' => $first_url
+        ];
 
-        if(is_array($extraParams) && !empty($extraParams)) {
+        if (is_array($extraParams) && !empty($extraParams)) {
             foreach($extraParams as $key => $value) {
                 $params[$key] = $value;
             }
@@ -1007,7 +952,7 @@ if (!function_exists('xtclass_pagination_items')) {
 if (!function_exists('xtclass_meta_description')) {
     function xtclass_meta_description() {
         if (osc_is_public_profile()) {
-            return osc_highlight( osc_user_info() , 120 );
+            return osc_highlight(osc_user_info(), 120);
         }
     }
     osc_add_filter('meta_description_filter', 'xtclass_meta_description');
@@ -1031,7 +976,7 @@ osc_add_hook('search_form', 'xtclass_meta_search');
  */
 function xtclass_meta_publish($catId = null) {
     //osc_enqueue_script( 'php-date' );
-    CustomFieldForm::meta_fields_input( $catId );
+    CustomFieldForm::meta_fields_input($catId);
 }
 
 /**
@@ -1040,7 +985,7 @@ function xtclass_meta_publish($catId = null) {
  */
 function xtclass_meta_edit($catId = null, $item_id = null) {
     //osc_enqueue_script( 'php-date' );
-    CustomFieldForm::meta_fields_input( $catId , $item_id );
+    CustomFieldForm::meta_fields_input($catId , $item_id);
 }
 
 osc_remove_hook('item_form', 'osc_meta_publish');
@@ -1103,16 +1048,23 @@ if (!function_exists('xtclass_delete')) {
 }
 
 
-/**
- * Process to upload images
- */
 if (!function_exists('xtclass_upload_images')) {
+    /**
+     * Process to upload images
+     */
     function xtclass_upload_images($filename, $preference = null) {
         $package = Params::getFiles('file');
         if ($package['error'] == UPLOAD_ERR_OK) {
-            $img = ImageResizer::fromFile($package['tmp_name']);
+            if (class_exists('ImageResizer')) {
+                $img = ImageResizer::fromFile($package['tmp_name']);
+            }
+
+            if (class_exists('ImageProcessing')) {
+                $img = ImageProcessing::fromFile($package['tmp_name']);
+            }
+            
             $ext = $img->getExt();
-            $logoname     = $filename.'.'.$ext;
+            $logoname = $filename . '.' . $ext;
             $path = xtclass_images_uploads_path($logoname);
             //$img->saveToFile($path);
             if (move_uploaded_file($package['tmp_name'], $path)) {
@@ -1128,10 +1080,10 @@ if (!function_exists('xtclass_upload_images')) {
     }
 }
 
-/**
- * Process to upload JSON file
- */
 if (!function_exists('upload_metadata_json')) {
+    /**
+     * Process to upload JSON file
+     */
     function upload_metadata_json($filename, $path) {
         $package = Params::getFiles('file');
         
