@@ -1,7 +1,7 @@
 
 # XTClass
 
-A Osclass theme ideal for realestate classifieds.
+An Osclass theme ideal for realestate classifieds.
 
 | Full screen | Tablet |
 |--|--|
