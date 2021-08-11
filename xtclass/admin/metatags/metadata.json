@@ -1,0 +1,134 @@
+{
+    "item": [
+        { "name": "title", "content": "{ITEM_TITLE} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{ITEM_DESCRIPTION}" },
+        { "name": "twitter:title", "content": "{ITEM_TITLE} - {PAGE_TITLE}" },
+        { "name": "twitter:card", "content": "{ITEM_DESCRIPTION}" },
+        { "name": "twitter:description", "content": "{ITEM_DESCRIPTION}" },
+        { "name": "twitter:image", "content": "{ITEM_IMAGE}" },
+        { "property": "og:title", "content": "{ITEM_TITLE} - {PAGE_TITLE}" },
+        { "property": "og:type", "content": "article" },
+        { "property": "og:url", "content": "{ITEM_URL}" },
+        { "property": "og:image", "content": "{ITEM_IMAGE}" },
+        { "property": "og:description", "content": "{ITEM_DESCRIPTION}" }
+    ],
+    "item/item_add": [
+        { "name": "title", "content": "{PUBLISH_LISTING_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "item/item_edit": [
+        { "name": "title", "content": "{EDIT_LISTING_TEXT} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{ITEM_DESCRIPTION}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "item/contact": [
+        { "name": "title", "content": "{CONTACT_SELLER_TEXT} - {ITEM_TITLE} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{CONTACT_SELLER_TEXT}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow" }
+    ],
+    "page": [
+        { "name": "title", "content": "{STATIC_PAGE_TITLE} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{PAGE_TEXT}" },
+        { "name": "robots", "content": "index, follow" },
+        { "name": "googlebot", "content": "index, follow" }
+    ],
+    "error": [
+        { "name": "title", "content": "{ERROR_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "search": [
+        { "name": "title", "content": "{TITLE_SEARCH_RESULT} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{DESCRIPTION_SEARCH_RESULT}" }
+    ],
+    "login": [
+        { "name": "title", "content": "{LOGIN_TEXT} - {PAGE_TITLE}" },
+        { "name": "description", "content": "{LOGIN_TEXT}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "login/recover": [
+        { "name": "title", "content": "{RECOVER_YOUR_PASSWORD_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "login/forgot": [
+        { "name": "title", "content": "{RECOVER_MY_PASSWORD_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "register": [
+        { "name": "title", "content": "{CREATE_NEW_ACCOUNT_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user": [
+        { "name": "title", "content": "{USER_NAME}'s profile - {PAGE_TITLE}" },
+        { "name": "description", "content": "{USER_INFO}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/dashboard": [
+        { "name": "title", "content": "{DASHBOARD_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow, noarchive" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/items": [
+        { "name": "title", "content": "{MANAGE_MY_LISTING_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/alerts": [
+        { "name": "title", "content": "{MANAGE_MY_ALERTS_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow, noarchive" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/profile": [
+        { "name": "title", "content": "{UPDATE_MY_PROFILE_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/pub_profile": [
+        { "name": "title", "content": "{USER_NAME}'s {PUBLIC_PROFILE_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "index, follow" }
+    ],
+    "user/change_email": [
+        { "name": "title", "content": "{CHANGE_MY_EMAIL_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/change_username": [
+        { "name": "title", "content": "{CHANGE_MY_USERNAME_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "user/change_password": [
+        { "name": "title", "content": "{CHANGE_MY_PASSWORD_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "contact": [
+        { "name": "title", "content": "{CONTACT_TEXT} - {PAGE_TITLE}" },
+        { "name": "robots", "content": "noindex, nofollow, noarchive" },
+        { "name": "googlebot", "content": "noindex, nofollow, noarchive" }
+    ],
+    "home": [
+        { "name": "title", "content": "{PAGE_TITLE}" },
+        { "name": "description", "content": "{PAGE_DESCRIPTION}" },
+        { "name": "robots", "content": "index, follow" },
+        { "name": "googlebot", "content": "index, follow" },
+        { "name": "twitter:title", "content": "{PAGE_TITLE}" },
+        { "name": "twitter:card", "content": "{PAGE_DESCRIPTION}" },
+        { "name": "twitter:description", "content": "{PAGE_DESCRIPTION}" },
+        { "name": "twitter:image", "content": "{LOGO}" },
+        { "property": "og:title", "content": "{PAGE_TITLE}" },
+        { "property": "og:type", "content": "article" },
+        { "property": "og:url", "content": "{BASE_URL}" },
+        { "property": "og:image", "content": "{LOGO}" },
+        { "property": "og:description", "content": "{PAGE_DESCRIPTION}" }
+    ]
+}
