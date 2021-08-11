@@ -13,7 +13,7 @@ A Osclass theme ideal for realestate classifieds.
 
 ## About
 
-XTClass is created and maintained by CodexiLab ([@adrianolmedo](https://github.com/adrianolmedo). Based in [Bender Bootstrap](https://github.com/codexilab/osclass-benderbs)).
+XTClass is created and maintained by CodexiLab ([@adrianolmedo](https://github.com/adrianolmedo)). Based in [Bender Bootstrap](https://github.com/codexilab/osclass-benderbs).
 
 Bender Bootstrap is based on [SB Admin 2](https://startbootstrap.com/template-overviews/sb-admin-2/) v4.1.0 an open source admin dashboard theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
