@@ -2,7 +2,7 @@
 	/*
 	 * MIT License
 	 * 
-	 * Copyright (c) 2020 CodexiLab
+	 * Copyright (c) 2021 CodexiLab
 	 * 
 	 * Permission is hereby granted, free of charge, to any person obtaining a copy
 	 * of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@
 osc_add_hook('header', 'xtclass_nofollow_construct');
 
 xtclass_add_wrapper_class('border border-warning rounded alert alert-warning mt-2 mb-4');
+
 osc_current_web_theme_path('header.php'); ?>
 	<div class="col mt-3">
 		<h1><?php _e("Sorry but I can't find the page you're looking for", XTCLASS_THEME_FOLDER) ; ?></h1>
