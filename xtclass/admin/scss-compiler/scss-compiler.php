@@ -84,7 +84,7 @@ $css_file_path 	= xtclass_css_style_path();
 	<div class="flashmessage flashmessage-error" style="display: block;">
         <p><?php _e('Make recursively this folders <strong>css</strong> and <strong>scss</strong> and its files writables:', XTCLASS_THEME_FOLDER); ?></p>
         <p><?php _e('Or under UNIX execute this command from the shell:', XTCLASS_THEME_FOLDER); ?></p>
-        <p class="command">chmod -R 775 <?php echo XTCLASS_THEME_PATH . 'css'; ?> <?php echo XTCLASS_THEME_PATH . 'scss'; ?></p>
+        <p class="command">chmod -R a+w <?php echo XTCLASS_THEME_PATH . 'css'; ?> <?php echo XTCLASS_THEME_PATH . 'scss'; ?></p>
     </div>
 
 <?php endif; ?>
