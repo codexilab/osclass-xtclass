@@ -30,10 +30,12 @@ if (!OC_ADMIN) exit('User access is not allowed.'); ?>
                 <div class="form-label"><?php _e('Slogan'); ?></div>
                 <div class="form-controls"><input type="text" name="slogan" value="<?php echo osc_get_preference('slogan', 'xtclass'); ?>"></div>
             </div>
+            
             <div class="form-row">
                 <div class="form-label"><?php _e('Search placeholder', XTCLASS_THEME_FOLDER); ?></div>
-                <div class="form-controls"><input type="text" class="xlarge" name="keyword_placeholder" value="<?php echo osc_esc_html( osc_get_preference('keyword_placeholder', 'bender') ); ?>"></div>
+                <div class="form-controls"><input type="text" name="keyword_placeholder" value="<?php echo osc_esc_html( osc_get_preference('keyword_placeholder', 'bender') ); ?>"></div>
             </div>
+            
             <div class="form-row">
                 <div class="form-label"><?php _e('Show lists as:', XTCLASS_THEME_FOLDER); ?></div>
                 <div class="form-controls">
@@ -41,32 +43,18 @@ if (!OC_ADMIN) exit('User access is not allowed.'); ?>
                         <option value="gallery" <?php if (xtclass_default_show_as() == 'gallery') echo 'selected="selected"'; ?>><?php _e('Gallery',XTCLASS_THEME_FOLDER); ?></option>
                         <option value="list" <?php if (xtclass_default_show_as() == 'list') echo 'selected="selected"';  ?>><?php _e('List',XTCLASS_THEME_FOLDER); ?></option>
                     </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-controls">
+                    <br><br>
                     <div class="form-label-checkbox">
                         <label>
                             <input type="checkbox" name="show_premiums_home" value="1" <?php if (xtclass_show_premiums_home()) echo 'checked="true"'; ?>>
                             <?php _e('Show premiums listings at home.', XTCLASS_THEME_FOLDER); ?>
+                            <br><br>
+                            <input type="number" class="input-medium" name="num_premiums_home" value="<?php echo xtclass_num_premiums_home(); ?>">
+                            <div class="help-box"><?php _e('Number of premiums listings at home.', XTCLASS_THEME_FOLDER); ?></div>
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-controls">
-                    <input type="number" class="input-small" name="num_premiums_home" value="<?php echo xtclass_num_premiums_home(); ?>">
-                    <?php _e('Number of premiums listings.', XTCLASS_THEME_FOLDER); ?>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-label"><?php _e('Publish link text', XTCLASS_THEME_FOLDER); ?></div>
-                <div class="form-controls"><?php _e('Publish'); ?> <input type="text" class="input-medium" name="publish_link" value="<?php echo osc_esc_html(osc_get_preference('publish_link', 'xtclass')); ?>"></div>
-            </div>
-            <!--<div class="form-row">
-                <div class="form-label"><?php _e('Publish button text', XTCLASS_THEME_FOLDER); ?></div>
-                <div class="form-controls"><?php _e('Publish'); ?> <input type="text" class="input-medium" name="publish_button" value="<?php echo osc_esc_html(osc_get_preference('publish_button', 'xtclass')); ?>"></div>
-            </div>-->
         </div>
     </fieldset>
 

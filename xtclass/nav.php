@@ -44,7 +44,7 @@
 	<?php endif; ?>
 
 	<?php if (osc_users_enabled() || (!osc_users_enabled() && !osc_reg_user_post())) : ?>
-	<a class="btn btn-danger d-none d-lg-block" href="<?php echo osc_item_post_url_in_category() ; ?>"><?php echo xtclass_publish_link_text(); ?></a>
+	<a class="btn btn-danger d-none d-lg-block" href="<?php echo osc_item_post_url_in_category() ; ?>"><?php echo __('Publish your ad for free', XTCLASS_THEME_FOLDER); ?></a>
 	<?php endif; ?>
 
 	<ul class="navbar-nav ml-max-sm-auto">

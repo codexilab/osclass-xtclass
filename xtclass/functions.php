@@ -117,15 +117,6 @@ if (!function_exists('xtclass_images_uploads_url')) {
     }
 }
 
-if (!function_exists('xtclass_publish_link_text')) {
-    function xtclass_publish_link_text() {
-        if (osc_get_preference('publish_link', 'xtclass') != '') {
-            return __('Publish '.osc_esc_html(osc_get_preference('publish_link', 'xtclass'), XTCLASS_THEME_FOLDER));
-        }
-        return __('Publish your ad for free', XTCLASS_THEME_FOLDER);
-    }
-}
-
 if (!function_exists('xtclass_show_premiums_home')) {
     function xtclass_show_premiums_home() {
         return (bool) osc_get_preference('show_premiums_home', 'xtclass');
@@ -587,9 +578,9 @@ if (!function_exists('xtclass_draw_item')) {
  */
 function html_option_nav_menu($n) {
     switch ($n) {
-        case 'publish_link':
+        case 'publish_btn':
             return  '<div class="dropdown-row d-flex align-items-center ml-auto d-lg-none">
-                        <a class="btn btn-danger btn-lg btn-block" href="' . osc_item_post_url_in_category() . '">' . xtclass_publish_link_text() . '</a>
+                        <a class="btn btn-danger btn-lg btn-block" href="' . osc_item_post_url_in_category() . '">' . __('Publish your ad for free', XTCLASS_THEME_FOLDER) . '</a>
                     </div>';
             break;
 
@@ -643,7 +634,7 @@ function get_user_nav_menu() {
     $options[] = array('custom' => '<div class="dropdown-divider d-lg-none"></div>');
 
     if (osc_users_enabled() || (!osc_users_enabled() && !osc_reg_user_post())) {
-        $options[] = array('custom' => html_option_nav_menu('publish_link'));
+        $options[] = array('custom' => html_option_nav_menu('publish_btn'));
     }
     
     if (osc_users_enabled()) {
@@ -682,7 +673,7 @@ function xtclass_user_nav_menu($options = null) {
         $options[] = array('custom' => '<div class="dropdown-divider d-lg-none"></div>');
 
         if (osc_users_enabled() || (!osc_users_enabled() && !osc_reg_user_post())) {
-            $options[] = array('custom' => html_option_nav_menu('publish_link'));
+            $options[] = array('custom' => html_option_nav_menu('publish_btn'));
         }
         
         if (osc_users_enabled()) {
@@ -1129,14 +1120,11 @@ if (!function_exists('theme_xtclass_actions_admin')) {
                     osc_set_preference('defaultShowAs@all', Params::getParam('defaultShowAs@all'), 'bender');
                     osc_set_preference('defaultShowAs@search', Params::getParam('defaultShowAs@all'));
 
-                    osc_set_preference('publish_link', Params::getParam('publish_link'), 'xtclass');
                     osc_set_preference('slogan', trim(Params::getParam('slogan', false, false, false)), 'xtclass');
                     osc_set_preference('show_premiums_home', Params::getParam('show_premiums_home'), 'xtclass');
                     if (is_numeric(Params::getParam('num_premiums_home'))) {
                         osc_set_preference('num_premiums_home', Params::getParam('num_premiums_home'), 'xtclass');
                     }
-                    osc_set_preference('publish_button', Params::getParam('publish_button'), 'xtclass');
-
                     osc_set_preference('defaultLocationShowAs', Params::getParam('defaultLocationShowAs'), 'bender');
 
                     osc_set_preference('header-728x90',         trim(Params::getParam('header-728x90', false, false, false)), 'bender');
