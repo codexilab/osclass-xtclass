@@ -255,7 +255,7 @@ msgstr ""
 
 #: footer.php:49
 #: header.php:54
-msgid "Publish your ad for free"
+msgid "Publish your ad"
 msgstr ""
 
 #: footer.php:64

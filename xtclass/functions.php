@@ -581,7 +581,7 @@ if (!function_exists('html_option_nav_menu')) {
         switch ($n) {
             case 'publish_btn':
                 return  '<div class="dropdown-row d-flex align-items-center ml-auto d-lg-none">
-                            <a class="btn btn-danger btn-lg btn-block" href="' . osc_item_post_url_in_category() . '">' . __('Publish your ad for free', XTCLASS_THEME_FOLDER) . '</a>
+                            <a class="btn btn-danger btn-lg btn-block" href="' . osc_item_post_url_in_category() . '">' . __('Publish your ad', XTCLASS_THEME_FOLDER) . '</a>
                         </div>';
                 break;
 
