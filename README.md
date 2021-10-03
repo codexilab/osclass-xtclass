@@ -21,6 +21,12 @@ An Osclass theme ideal for realestate classifieds.
   * [lightGallery 1.3.9](https://github.com/codexilab/osclass-benderbs/wiki/lightGallery-1.3.9)
   * [Magnific Popup 1.1.0](https://github.com/codexilab/osclass-benderbs/wiki/Magnific-Popup-1.1.0)
 
+## Include SCSS compiler
+
+Appearance » CSS style editor
+
+![SCSS compiler at XTClass](https://i.imgur.com/ibIaPRJ.png)
+
 ## About
 
 XTClass is created and maintained by CodexiLab ([@adrianolmedo](https://github.com/adrianolmedo)). Based in [Bender Bootstrap](https://github.com/codexilab/osclass-benderbs).
