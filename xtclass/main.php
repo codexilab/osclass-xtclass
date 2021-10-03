@@ -151,7 +151,7 @@ osc_current_web_theme_path('header.php'); ?>
 
 	<aside id="sidebar" class="col-md-4 mt-3">
 		<?php if (osc_get_preference('sidebar-300x250', 'bender') != '') : ?>
-		<div class="ads_300 mb-2"><!-- sidebar ad 300x250 -->
+		<div class="ads_300 mb-2 text-center"><!-- sidebar ad 300x250 -->
 		<?php echo apply_eval_nice(osc_get_preference('sidebar-300x250', 'bender')); ?>
 		</div><!-- /sidebar ad 300x250 -->
 		<?php endif; ?>
