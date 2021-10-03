@@ -5,11 +5,11 @@ An Osclass theme ideal for realestate classifieds.
 
 | Full screen | Tablet |
 |--|--|
-| ![XTClass in Full screen](https://i.imgur.com/PS9kwEi.png) | ![XTClass in Tablet](https://i.imgur.com/GgKscRq.png) |
+| ![XTClass in Full screen](https://i.imgur.com/bzr67pQ.png) | ![XTClass in Tablet](https://i.imgur.com/OHSpdkf.png) |
 
 | Smartphone | Landscape |
 |--|--|
-| ![XTClass in Smartphone](https://i.imgur.com/qi2iYU2.png) | ![XTClass in Landscape](https://i.imgur.com/pX1ewK3.png) |
+| ![XTClass in Smartphone](https://i.imgur.com/QIBagFD.png) | ![XTClass in Landscape](https://i.imgur.com/XcrDQYa.png) |
 
 ## Wiki
 
