@@ -26,7 +26,7 @@
 /*
 Theme Name: XTClass
 Theme URI: https://gitlab.com/codexilab/osclass-xtclass
-Description: Bootstrap 4 theme based in Bender Bootstrap 1.0.3
+Description: Bootstrap 4 theme based in BenderBS 1.1.7
 Version: 1.0.2
 Author: CodexiLab
 Author URI: https://gitlab.com/codexilab
@@ -37,8 +37,8 @@ Theme update URI: xtclass
     function xtclass_theme_info() {
         return [
              'name'        => 'XTClass'
-            ,'version'     => '1.0.1'
-            ,'description' => 'Bootstrap 4 theme based in Bender Bootstrap 1.0.3'
+            ,'version'     => '1.0.2'
+            ,'description' => 'Bootstrap 4 theme based in BenderBS 1.1.7'
             ,'author_name' => 'CodexiLab'
             ,'author_url'  => 'https://github.com/codexilab'
             ,'locations'   => array()
