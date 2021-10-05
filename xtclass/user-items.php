@@ -35,6 +35,8 @@ if (xtclass_show_as() == 'gallery') {
 	$listClass 	= 'col-sm-4';
 }
 
+$rw = (osc_rewrite_enabled()) ? '?' : '&';
+
 osc_current_web_theme_path('header.php'); ?>
 
 	<?php osc_current_web_theme_path('user-sidebar.php'); ?>
@@ -56,11 +58,11 @@ osc_current_web_theme_path('header.php'); ?>
 		<div class="row mb-3">
 			<div class="col-md-12 text-right">
 				<div class="btn-group btn-group-toggle">
-					<a href="<?php echo osc_user_list_items_url(); ?>&sShowAs=list" class="btn btn-custom-1 btn-sm <?php echo $list; ?>"
+					<a href="<?php echo osc_user_list_items_url() . $rw; ?>sShowAs=list" class="btn btn-custom-1 btn-sm <?php echo $list; ?>"
 						data-toggle="tooltip" data-placement="top" title="<?php _e('List', XTCLASS_THEME_FOLDER); ?>">
 						<i class="fas fa-list-ul"></i>
 					</a>
-					<a href="<?php echo osc_user_list_items_url(); ?>&sShowAs=gallery" class="btn btn-custom-1 btn-sm <?php echo $gallery; ?>"
+					<a href="<?php echo osc_user_list_items_url() . $rw; ?>sShowAs=gallery" class="btn btn-custom-1 btn-sm <?php echo $gallery; ?>"
 						data-toggle="tooltip" data-placement="top" title="<?php _e('Grid', XTCLASS_THEME_FOLDER); ?>">
 						<i class="fas fa-th"></i>
 					</a>
