@@ -23,7 +23,7 @@ if (OC_ADMIN)
     require_once dirname(__FILE__) . '/includes/classes/scssphp/scss.inc.php';
     use ScssPhp\ScssPhp\Compiler;
 
-define('XTCLASS_THEME_VERSION', '1.0.1');
+define('XTCLASS_THEME_VERSION', '1.0.2');
 define('XTCLASS_THEME_FOLDER', 'xtclass');
 define('XTCLASS_THEME_PATH', osc_themes_path() . XTCLASS_THEME_FOLDER . '/');
 
