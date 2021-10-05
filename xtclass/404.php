@@ -36,7 +36,7 @@ osc_current_web_theme_path('header.php'); ?>
 		<ul class="list-unstyled">
 			<li>
 				<?php _e('<strong>Search</strong> for it:', XTCLASS_THEME_FOLDER) ; ?>
-				<form action="<?php echo osc_base_url(true); ?>" method="get">
+				<form action="<?php echo osc_base_url(true); ?>" method="get" class="nocsrf">
 					<input type="hidden" name="page" value="search" />
 					<div class="form-row mr-1">
 						<div class="col-sm-10 col-md-6 col-lg-4">

@@ -50,7 +50,7 @@
 					<div class="row">
 						
 						<div class="col-md-10">
-							<form class="navbar-search row" action="<?php echo osc_base_url(true); ?>" method="get">
+							<form class="nocsrf navbar-search row" action="<?php echo osc_base_url(true); ?>" method="get">
 								<input type="hidden" name="page" value="search"/>
 								<div class="input-group input-group-lg">
 									<input type="text" name="sPattern" value="" class="form-control form-control-info bg-light border-1 small" placeholder="<?php echo osc_esc_html(__(osc_get_preference('keyword_placeholder', 'bender'), XTCLASS_THEME_FOLDER)); ?>" aria-label="Search" aria-describedby="basic-addon2">
