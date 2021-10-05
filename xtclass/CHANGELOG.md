@@ -1,7 +1,11 @@
 # XTClass
 ====================
 
-## [1.0.1] 2021-10-03
+## [1.0.2] 2021-10-04
+
+### Fixed
+
+- Little bugs about URLs.
 
 ### Changed
 
