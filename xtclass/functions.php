@@ -919,6 +919,9 @@ if (!function_exists('xtclass_pagination_items')) {
      * @return string
      */
     function xtclass_pagination_items($extraParams = array (), $field = false) {
+        $url = '';
+        $first_url = '';
+
         if (osc_is_public_profile()) {
             $url = osc_user_list_items_pub_profile_url('{PAGE}', $field);
             $first_url = osc_user_public_profile_url();
