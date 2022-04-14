@@ -949,6 +949,29 @@ if (!function_exists('xtclass_meta_description')) {
         if (osc_is_public_profile()) {
             return osc_highlight(osc_user_info(), 120);
         }
+
+        // home page
+        if ( osc_is_home_page() ) {
+            return osc_page_description();
+        }
+
+        // static page
+        if ( osc_is_static_page() ) {
+            return osc_highlight( osc_static_page_text() , 140 , '' , '' );
+        }
+
+        // search
+        if ( osc_is_search_page() ) {
+            if ( osc_has_items() ) {
+                return osc_item_category() . ' ' . osc_item_city() . ', ' . osc_highlight( osc_item_description() , 120 );
+            }
+            osc_reset_items();
+        }
+
+        // listing
+        if ( osc_is_ad_page() ) {
+            return osc_item_category() . ' ' . osc_item_city() . ', ' . osc_highlight( osc_item_description() , 120 );
+        }
     }
     osc_add_filter('meta_description_filter', 'xtclass_meta_description');
 }
