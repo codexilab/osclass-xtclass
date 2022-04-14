@@ -1,6 +1,12 @@
 # XTClass
 ====================
 
+## [1.0.3-rc] 2021-10-05
+
+### Fixed
+
+- Search generates a CSRF Token.
+
 ## [1.0.2] 2021-10-04
 
 ### Fixed

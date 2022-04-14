@@ -25,11 +25,11 @@
 
 /*
 Theme Name: XTClass
-Theme URI: https://gitlab.com/codexilab/osclass-xtclass
+Theme URI: https://github.com/codexilab/osclass-xtclass
 Description: Bootstrap 4 theme based in BenderBS 1.1.7
 Version: 1.0.2
 Author: CodexiLab
-Author URI: https://gitlab.com/codexilab
+Author URI: https://github.com/codexilab
 Widgets:  header, footer
 Theme update URI: xtclass
 */
